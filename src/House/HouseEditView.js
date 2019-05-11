@@ -87,8 +87,11 @@ class HouseEditView extends React.Component {
 
   selectedCompany = e => {
     let owners = [
-      { id: "5ccd17557677dc4720f5e23d", name: "Hunter" },
-      { id: "5ccd17557677dc4720f5e24d", name: "Ray" }
+      { id: "5cd60ca959118b00244c7e8a", name: "Hunter Zhou" },
+      { id: "5cd6177559118b00244c7e8d", name: "Ela Milne" },
+      { id: "5cd618af59118b00244c7e8e", name: "Michael Mau" },
+      { id: "5cd619bd59118b00244c7e8f", name: "Lachlan Smith" },
+      { id: "5cd61b1c59118b00244c7e90", name: "Jacky Leung" }
     ]
     for (let i = 0; i < owners.length; i++) {
       ownerList.push(<Option key={owners[i].id}>{owners[i].name}</Option>)
