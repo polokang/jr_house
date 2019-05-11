@@ -70,6 +70,7 @@ class HouseEditView extends React.Component {
         addr.address = values.address
         values.address = addr
         values.code = code
+        values.ownerAvatar = values.owner[0]
         addHouse(values, values.upload[0].originFileObj).then(response => {
           this.props.history.push("/houses")
         })
@@ -87,14 +88,39 @@ class HouseEditView extends React.Component {
 
   selectedCompany = e => {
     let owners = [
-      { id: "5cd60ca959118b00244c7e8a", name: "Hunter Zhou" },
-      { id: "5cd6177559118b00244c7e8d", name: "Ela Milne" },
-      { id: "5cd618af59118b00244c7e8e", name: "Michael Mau" },
-      { id: "5cd619bd59118b00244c7e8f", name: "Lachlan Smith" },
-      { id: "5cd61b1c59118b00244c7e90", name: "Jacky Leung" }
+      {
+        id: "5cd60ca959118b00244c7e8a",
+        name: "Hunter Zhou",
+        avatar:
+          "https://elasticbeanstalk-ap-southeast-2-619233410441.s3.ap-southeast-2.amazonaws.com/owner/5cd60ca959118b00244c7e8a.jpeg"
+      },
+      {
+        id: "5cd6177559118b00244c7e8d",
+        name: "Ela Milne",
+        avatar:
+          "https://elasticbeanstalk-ap-southeast-2-619233410441.s3.ap-southeast-2.amazonaws.com/owner/5cd6177559118b00244c7e8d.jpeg"
+      },
+      {
+        id: "5cd618af59118b00244c7e8e",
+        name: "Michael Mau",
+        avatar:
+          "https://elasticbeanstalk-ap-southeast-2-619233410441.s3.ap-southeast-2.amazonaws.com/owner/5cd618af59118b00244c7e8e.jpeg"
+      },
+      {
+        id: "5cd619bd59118b00244c7e8f",
+        name: "Lachlan Smith",
+        avatar:
+          "https://elasticbeanstalk-ap-southeast-2-619233410441.s3.ap-southeast-2.amazonaws.com/owner/5cd619bd59118b00244c7e8f.jpeg"
+      },
+      {
+        id: "5cd61b1c59118b00244c7e90",
+        name: "Jacky Leung",
+        avatar:
+          "https://elasticbeanstalk-ap-southeast-2-619233410441.s3.ap-southeast-2.amazonaws.com/owner/5cd61b1c59118b00244c7e90.jpeg"
+      }
     ]
     for (let i = 0; i < owners.length; i++) {
-      ownerList.push(<Option key={owners[i].id}>{owners[i].name}</Option>)
+      ownerList.push(<Option key={owners[i].avatar}>{owners[i].name}</Option>)
     }
     return e
   }

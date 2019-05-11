@@ -5,6 +5,7 @@ import "../styles/house.css"
 export default function HouseCard(props) {
   const { HouseInfo } = props
   const { Meta } = Card
+  const desc = HouseInfo.desc.substring(0, 110) + "......"
   return (
     <Card
       style={{ width: 380 }}
@@ -20,7 +21,7 @@ export default function HouseCard(props) {
       <Meta
         avatar={<Avatar src={HouseInfo.avaSrc} />}
         title={HouseInfo.title}
-        description={HouseInfo.desc}
+        description={desc}
       />
     </Card>
   )

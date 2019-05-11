@@ -8,15 +8,13 @@ export function fetchAllHouse() {
     const arr = []
 
     houseList.map(item => {
-      console.log("picture:", item.picture)
       let house = {
         title: item.address.address,
         code: item.code,
         carpark: item.carpark,
         desc: item.description,
         imgSrc: item.picture,
-        avaSrc:
-          "https://elasticbeanstalk-ap-southeast-2-619233410441.s3.ap-southeast-2.amazonaws.com/owner/5cd619bd59118b00244c7e8f.jpeg"
+        avaSrc: item.ownerAvatar
       }
 
       if (item.picture === "" || item.picture === undefined) {
@@ -29,11 +27,14 @@ export function fetchAllHouse() {
       if (item.phone === "" || item.phone === undefined) {
         house["phone"] = "04 24424222"
       }
-      if (item.description === "" || item.descripte === undefined) {
+      if (item.ownerAvatar === "" || item.ownerAvatar === undefined) {
+        house["avaSrc"] =
+          "https://elasticbeanstalk-ap-southeast-2-619233410441.s3.ap-southeast-2.amazonaws.com/owner/5cd619bd59118b00244c7e8f.jpeg"
+      }
+      if (item.description === "" || item.description === undefined) {
         house["desc"] =
           "Senior Sales and Marketing Consultant, Ray White Eight Mile Plains."
       }
-
       return arr.push(house)
     })
 
@@ -47,7 +48,6 @@ export function addHouse(House, file) {
       House
     })
     .then(response => {
-      console.log("response:", response)
       const afterAddId = response.data.data._id
       let data = new FormData()
       data.append("filepath", file, file.fileName)
