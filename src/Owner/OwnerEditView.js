@@ -116,7 +116,8 @@ class OwnerEditView extends React.Component {
         style={{
           width: "100%",
           paddingRight: "100px",
-          backgroundColor: "white"
+          backgroundColor: "white",
+          paddingTop: 35
         }}
       >
         <Form {...formItemLayout} onSubmit={this.handleSubmit}>
