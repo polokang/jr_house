@@ -8,12 +8,15 @@ export function fetchAllHouse() {
     const arr = []
 
     houseList.map(item => {
+      console.log("picture:", item.picture)
       let house = {
-        address: item.address,
+        title: item.address.address,
         code: item.code,
         carpark: item.carpark,
-        description: item.description,
-        picture: item.picture
+        desc: item.description,
+        imgSrc: item.picture,
+        avaSrc:
+          "https://elasticbeanstalk-ap-southeast-2-619233410441.s3.ap-southeast-2.amazonaws.com/owner/5cd619bd59118b00244c7e8f.jpeg"
       }
 
       if (item.picture === "" || item.picture === undefined) {
